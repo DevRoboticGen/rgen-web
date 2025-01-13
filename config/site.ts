@@ -12,7 +12,7 @@ export const siteConfig = {
       facebook: "https://facebook.com/RoboticGenInc",
       instagram: "https://www.instagram.com/roboticgen",
       tiktok: "https://tiktok.com/@roboticgen_inc",
-      linkedin: "hhttps://www.linkedin.com/company/roboticgen",
+      linkedin: "https://www.linkedin.com/company/roboticgen",
       youtube: "https://youtube.com/@RoboticGen",
     },
   },
