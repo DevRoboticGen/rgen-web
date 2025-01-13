@@ -21,11 +21,6 @@ export const siteConfig = {
   },
   navitems: [
     {
-      key: "Home",
-      title: "Home",
-      href: "/",
-    },
-    {
       key: "careers",
       title: "Careers",
       href: "/careers/",
@@ -38,12 +33,12 @@ export const siteConfig = {
     {
       key: "labs",
       title: "Labs",
-      href: "/#",
+      href: "https://roboticgenlabs.com/",
     },
     {
       key: "academy",
       title: "Academy",
-      href: "/#",
+      href: "https://roboticgen.co/",
     },
   ]
 };
