@@ -23,7 +23,7 @@ export function Hero() {
           className="z-50 flex flex-col items-center justify-center"
         >
           <motion.p className="font-instrumentSans bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text py-4 text-center text-3xl font-bold capitalize text-transparent md:text-7xl">
-            Driving the next generation <br /> Of Robotics and AI
+            Driving The Future Generation <br /> Of Robotics and AI
           </motion.p>
           <motion.p className="px-16 text-center text-base text-zinc-400 md:text-xl">
             The future belongs to those who innovate. How do we prepare the next
