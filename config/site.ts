@@ -2,9 +2,9 @@
 export const siteConfig = {
   name: "RoboticGen",
   url: "/#",
-  getStartedUrl:
-    "https://roboticgen.co",
-  ogImage: "https://roboticgen.com/og.jpg",
+  getStartedUrl:"https://roboticgen.co",
+  images: [],
+  keywords: ["robotics", "ai", "machine learning", "deep learning", "computer vision", "roboticgen"],
   description:
     "RoboticGen",
   links: {
