@@ -7,7 +7,6 @@ import TeamFooter from "@/components/sections/footer/default";
 import { NewsGrid } from "@/components/sections/news/news-card";
 
 export default function Home() {
-  const nayantha = "Nayantha";
   return (
     <main className="bg-background text-foreground">
       <Navbar />

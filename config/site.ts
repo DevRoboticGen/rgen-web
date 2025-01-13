@@ -21,9 +21,9 @@ export const siteConfig = {
   },
   navitems: [
     {
-      key: "about",
-      title: "About",
-      href: "/#about-roboticgen",
+      key: "Home",
+      title: "Home",
+      href: "/",
     },
     {
       key: "careers",
