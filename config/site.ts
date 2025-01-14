@@ -34,11 +34,13 @@ export const siteConfig = {
       key: "labs",
       title: "Labs",
       href: "https://roboticgenlabs.com/",
+      newTab: true,
     },
     {
       key: "academy",
       title: "Academy",
-      href: "https://roboticgen.co/",
+      href: "https://roboticgenacademy.com/",
+      newTab: true,
     },
   ]
 };
