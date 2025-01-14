@@ -7,17 +7,18 @@ export async function GET() {
     const tableName = 'Members'; 
     const records = await base(tableName)
       .select({
-        fields: ['First Name', 'Current Position' , 'Teams' , 'LinkedIn Url'], 
+        fields: ['Name Website', 'Title Website' , 'Teams Website' , 'LinkedIn Url' , 'Headshot Website'], 
+        view: 'Website',
       })
       .all();
 
-    const activeRecords = records.filter(record => record.fields['Status'] === 'ACTIVE');
-    const formattedRecords = activeRecords.map((record) => ({
+    const formattedRecords = records.map((record) => ({
       id: record.id,
-      name: record.fields['First Name'],
-      position: record.fields['Current Position'],
-      teams: record.fields['Teams'],
+      name: record.fields['Name Website'],
+      title: record.fields['Title Website'],
+      team: record.fields['Teams Website'],
       linkedIn: record.fields['LinkedIn Url'],
+      image: Array.isArray(record.fields['Headshot Website']) && record.fields['Headshot Website'][0] ? record.fields['Headshot Website'][0].url : '/avatar.png',
       
     }));
 

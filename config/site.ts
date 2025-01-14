@@ -29,7 +29,7 @@ export const siteConfig = {
     {
       key: "our-team",
       title: "Our Team",
-      href: "/#",
+      href: "/our-team/",
       target: ""
     },
     {

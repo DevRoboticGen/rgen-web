@@ -11,7 +11,11 @@ import {
 } from "./navigation-menu";
 import { siteConfig } from "@/config/site";
 
-export default function Navigation() {
+export default function Navigation({
+  state = "dark",
+}: {
+  state?: "dark" | "light";
+}) {
   return (
     <NavigationMenu className="hidden md:flex">
       <NavigationMenuList>
@@ -20,7 +24,7 @@ export default function Navigation() {
             <NavigationMenuLink
               href={item.href}
               target={item.target}
-              className={`font-lg group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-base font-medium transition-colors hover:bg-zinc-700/30 hover:font-semibold hover:text-white disabled:pointer-events-none disabled:opacity-50`}
+              className={`font-lg group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-base font-medium transition-colors ${state === "dark" ? "hover:bg-zinc-700/30 hover:text-zinc-100" : "hover:bg-zinc-700/10"} hover:font-semibold disabled:pointer-events-none disabled:opacity-50`}
             >
               {item.title}
             </NavigationMenuLink>

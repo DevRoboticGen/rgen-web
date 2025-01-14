@@ -43,7 +43,7 @@ export default function TeamFooter() {
       {/* Footer Content */}
       <footer className="relative z-10 -mt-24 flex flex-col items-center pb-12">
         <div className="mb-6">
-          <Roboticgen state="light" />
+          <Roboticgen state="dark" />
         </div>
         <nav className="flex flex-wrap justify-center gap-6">
           {siteConfig.navitems.map((item) => (

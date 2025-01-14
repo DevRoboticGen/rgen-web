@@ -17,10 +17,14 @@ import Roboticgen from "@/components/logos/roboticgen";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
-export default function Navbar() {
+export default function Navbar({
+  state = "dark",
+}: {
+  state?: "dark" | "light";
+}) {
   return (
     <header
-      className={`absolute top-0 z-50 -mb-4 w-full px-4 pb-4 text-zinc-50`}
+      className={`absolute top-0 z-50 -mb-4 w-full px-4 pb-4 ${state === "dark" ? "text-zinc-50" : "text-sky-950"}`}
     >
       <div
         className={`absolute left-0 w-full from-background backdrop-blur-sm`}
@@ -32,11 +36,11 @@ export default function Navbar() {
               href="/"
               className="flex items-center gap-2 text-xl font-bold"
             >
-              <Roboticgen state={"light"} />
+              <Roboticgen state={state} />
             </Link>
           </NavbarLeft>
           <NavbarRight>
-            <Navigation />
+            <Navigation state="light" />
             <Sheet>
               <SheetTrigger asChild>
                 <Button
@@ -48,17 +52,19 @@ export default function Navbar() {
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right">
+              <SheetContent side={state}>
                 <SheetTitle>
-                  <Roboticgen state="light" />
+                  <Roboticgen state={state} />
                 </SheetTitle>
-                <nav className="grid gap-6 p-4 pt-8 text-lg font-medium text-zinc-400">
+                <nav
+                  className={`grid gap-6 p-4 pt-8 text-lg font-medium ${state === "dark" ? "text-zinc-400" : "text-zinc-700"}`}
+                >
                   {siteConfig.navitems.map((link, index) => (
                     <Link
                       key={index}
                       href={link.href}
                       target={link.target}
-                      className="transition-colors duration-200 hover:text-zinc-50"
+                      className={`transition-colors duration-200 ${state === "dark" ? "hover:text-zinc-50" : "hover:text-slate-800"} `}
                     >
                       <span>{link.title}</span>
                     </Link>
