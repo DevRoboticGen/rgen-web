@@ -41,6 +41,7 @@ function TeamMember({ name, title, linkedIn, image, team }: Member) {
       {linkedIn && (
         <Link
           href={linkedIn}
+          target="_blank"
           className="flex flex-row gap-2 text-muted-foreground hover:text-primary"
         >
           <Linkedin className="h-5 w-5" />
@@ -136,7 +137,7 @@ export default function TeamSection() {
           Object.entries(teamGroups).map(([teamName, teamMembers]) => (
             <div key={teamName} className="mb-12 last:mb-0">
               <h3 className="mb-8 text-center text-3xl font-bold text-sky-950 md:text-3xl">
-                {teamName} of RoboticGen
+                {teamName}
               </h3>
               <div
                 className={`grid grid-cols-1 justify-center gap-8 md:grid-cols-2 lg:grid-cols-${Math.min(teamMembers.length, 4)} lg:gap-12`}
