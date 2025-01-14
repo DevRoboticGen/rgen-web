@@ -7,14 +7,14 @@ export async function GET() {
     const tableName = 'Careers'; 
     const records = await base(tableName)
       .select({
-        fields: ['Display Name', 'Status' , 'Notion Link' , 'Duration', 'Type', 'Mode', 'Apply' , 'Teams' , 'Cover Website'], 
+        fields: ['Display Name', 'Status' , 'Notion Link' , 'Duration', 'Type', 'Mode', 'Apply' , 'Teams Website' , 'Cover Website'], 
       })
       .all();
 
     const activeRecords = records.filter(record => record.fields['Status'] === 'ACTIVE');
     const formattedRecords = activeRecords.map((record) => ({
       name: record.fields['Display Name'],
-      team: record.fields['Teams'],
+      team: record.fields['Teams Website'],
       duration: record.fields['Duration'],
       type: record.fields['Type'],
       mode: record.fields['Mode'],
