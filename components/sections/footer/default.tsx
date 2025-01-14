@@ -66,6 +66,9 @@ export default function TeamFooter() {
         >
           hello@roboticgen.co
         </a>
+        <p className="mt-6 text-center text-zinc-300">
+          2025 © RoboticGen Pvt Ltd. All Rights Reserved
+        </p>
       </footer>
     </div>
   );
