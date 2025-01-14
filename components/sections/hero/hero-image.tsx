@@ -71,9 +71,9 @@ export function HeroCareers() {
             dedicated to creating, learning, and having an absolute blast along
             the way
           </motion.p>
-          <button className="relative mx-auto mt-4 rounded-full border border-emerald-500/20 bg-emerald-300/10 px-4 py-2 text-center text-white backdrop-blur-sm">
+          <button className="relative mx-auto mt-4 rounded-full border border-sky-500/20 bg-sky-300/10 px-4 py-2 text-center text-white backdrop-blur-sm">
             <span>Open Positions →</span>
-            <div className="absolute inset-x-0 -bottom-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-emerald-500 to-transparent" />
+            <div className="absolute inset-x-0 -bottom-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
           </button>
         </motion.div>
       </ImagesSlider>

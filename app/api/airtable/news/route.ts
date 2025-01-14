@@ -7,7 +7,7 @@ export async function GET() {
     const tableName = 'News'; 
     const records = await base(tableName)
       .select({
-        fields: ['Title', 'Status' , 'Date' , 'Cover', 'Details'], 
+        fields: ['Title', 'Status' , 'Date' , 'Cover', 'Details' , 'Read More'], 
       })
       .all();
 
@@ -18,6 +18,7 @@ export async function GET() {
       date: record.fields['Date'],
       image: Array.isArray(record.fields['Cover']) && record.fields['Cover'][0] ? record.fields['Cover'][0].url : '',
       description: record.fields['Details'],
+      readMore: record.fields['Read More'],
     }));
 
     return NextResponse.json(formattedRecords);

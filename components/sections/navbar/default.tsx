@@ -57,6 +57,7 @@ export default function Navbar() {
                     <Link
                       key={index}
                       href={link.href}
+                      target={link.target}
                       className="transition-colors duration-200 hover:text-zinc-50"
                     >
                       <span>{link.title}</span>

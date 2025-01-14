@@ -24,22 +24,25 @@ export const siteConfig = {
       key: "careers",
       title: "Careers",
       href: "/careers/",
+      target: ""
     },
     {
       key: "our-team",
       title: "Our Team",
       href: "/#",
+      target: ""
     },
     {
       key: "labs",
       title: "Labs",
       href: "https://roboticgenlabs.com/",
-      newTab: true,
+      target: "_blank"
     },
     {
       key: "academy",
       title: "Academy",
       href: "https://roboticgenacademy.com/",
+      target: "_blank"
     },
   ]
 };

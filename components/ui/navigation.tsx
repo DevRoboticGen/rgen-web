@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import {
@@ -18,13 +17,13 @@ export default function Navigation() {
       <NavigationMenuList>
         {siteConfig.navitems.map((item) => (
           <NavigationMenuItem key={item.title}>
-            <Link href={item.href} legacyBehavior passHref>
-              <NavigationMenuLink
-                className={`font-lg group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-base font-medium transition-colors hover:bg-zinc-700/30 hover:font-semibold hover:text-white disabled:pointer-events-none disabled:opacity-50`}
-              >
-                {item.title}
-              </NavigationMenuLink>
-            </Link>
+            <NavigationMenuLink
+              href={item.href}
+              target={item.target}
+              className={`font-lg group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-base font-medium transition-colors hover:bg-zinc-700/30 hover:font-semibold hover:text-white disabled:pointer-events-none disabled:opacity-50`}
+            >
+              {item.title}
+            </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
       </NavigationMenuList>
