@@ -1,8 +1,8 @@
 "use client";
-import Link from "next/link";
 import { Section } from "../../ui/section";
 import { useEffect, useState } from "react";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import Image from "next/image";
+import { Clock, Users, Briefcase, MapPin } from "lucide-react";
 
 interface JobDescription {
   name: string;
@@ -12,6 +12,7 @@ interface JobDescription {
   mode: string;
   notion: string;
   apply: string;
+  image: string;
 }
 
 export default function CareerPositions() {
@@ -51,7 +52,7 @@ export default function CareerPositions() {
           </p>
         </div>
 
-        <div className="grid gap-6 pt-12 sm:grid-cols-1 lg:grid-cols-2">
+        <div className="grid gap-6 pt-12 sm:grid-cols-1 lg:grid-cols-3">
           {positions.map((content, index) => (
             <JobCard key={index} JobDescription={content} />
           ))}
@@ -67,58 +68,52 @@ export function JobCard({
   JobDescription: JobDescription;
 }) {
   return (
-    <div className="mx-auto w-full">
-      <div className="group relative h-auto overflow-hidden rounded-2xl border border-zinc-100 bg-white p-4 transition duration-200 hover:shadow-xl">
-        {/* Header */}
-        <h3 className="font-instrumentSans py-2 text-xs font-medium uppercase text-sky-700 md:text-sm">
-          We are Hiring
-        </h3>
-
-        {/* Job Name */}
-        <h2 className="mb-3 text-lg font-bold text-zinc-700 lg:text-xl">
-          {JobDescription.name}
-        </h2>
-
-        {/* Job Details */}
-        <p className="space-y-1 text-base font-medium text-zinc-600">
-          <span>
-            <strong>Team:</strong> {JobDescription.team}
-          </span>
-          <br />
-          <span>
-            <strong>Duration:</strong> {JobDescription.duration}
-          </span>
-          <br />
-          <span>
-            <strong>Type:</strong> {JobDescription.type}
-          </span>
-          <br />
-          <span>
-            <strong>Mode:</strong> {JobDescription.mode}
-          </span>
-        </p>
-
-        {/* Footer */}
-        <div className="mt-6 flex items-center justify-between">
-          {/* View Details */}
-          <Link
-            href={JobDescription.notion}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center text-sm font-medium text-sky-600 hover:underline"
-          >
-            View Details <FaExternalLinkAlt className="ml-1" />
-          </Link>
-
-          {/* Apply Now */}
-          <Link
+    <div className="mx-auto w-full max-w-sm">
+      <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white transition duration-200 hover:shadow-xl">
+        <div
+          className="relative w-full overflow-hidden rounded-tl-lg rounded-tr-lg bg-gray-100"
+          style={{ paddingBottom: "66.25%" }}
+        >
+          <Image
+            src={JobDescription.image}
+            alt={`${JobDescription.name} thumbnail`}
+            layout="fill"
+            objectFit="cover"
+            className="transform transition duration-200 group-hover:scale-95 group-hover:rounded-2xl"
+          />
+        </div>
+        <div className="flex flex-grow flex-col p-4">
+          <h2 className="mb-4 text-lg font-bold text-zinc-700">
+            {JobDescription.name}
+          </h2>
+          <div className="flex flex-col space-y-2 text-sm text-zinc-500">
+            <div className="flex items-center">
+              <Users className="mr-2 h-4 w-4" />
+              <span>{JobDescription.team}</span>
+            </div>
+            <div className="flex items-center">
+              <Clock className="mr-2 h-4 w-4" />
+              <span>{JobDescription.duration}</span>
+            </div>
+            <div className="flex items-center">
+              <Briefcase className="mr-2 h-4 w-4" />
+              <span>{JobDescription.type}</span>
+            </div>
+            <div className="flex items-center">
+              <MapPin className="mr-2 h-4 w-4" />
+              <span>{JobDescription.mode}</span>
+            </div>
+          </div>
+        </div>
+        <div className="mt-auto p-4">
+          <a
             href={JobDescription.apply}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center rounded-xl bg-black px-6 py-2 text-sm font-bold text-white transition duration-200 hover:bg-gray-800"
+            className="block w-full rounded-xl bg-sky-500 px-6 py-2 text-center text-sm font-bold text-white transition duration-200 hover:bg-sky-600"
           >
             Apply Now
-          </Link>
+          </a>
         </div>
       </div>
     </div>

@@ -45,7 +45,7 @@ export function Hero() {
 export function HeroCareers() {
   const images = ["/hero/hero-careers.png"];
   return (
-    <section id="hero">
+    <section id="hero-careers">
       <ImagesSlider className="h-[100vh]" images={images}>
         <motion.div
           initial={{

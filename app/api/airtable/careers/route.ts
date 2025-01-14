@@ -7,7 +7,7 @@ export async function GET() {
     const tableName = 'Careers'; 
     const records = await base(tableName)
       .select({
-        fields: ['Display Name', 'Status' , 'Notion Link' , 'Duration', 'Type', 'Mode', 'Apply' , 'Teams'], 
+        fields: ['Display Name', 'Status' , 'Notion Link' , 'Duration', 'Type', 'Mode', 'Apply' , 'Teams' , 'Cover Website'], 
       })
       .all();
 
@@ -20,6 +20,7 @@ export async function GET() {
       mode: record.fields['Mode'],
       notion: record.fields['Notion Link'],
       apply: record.fields['Apply'],
+      image: Array.isArray(record.fields['Cover Website']) && record.fields['Cover Website'][0] ? record.fields['Cover Website'][0].url : '',
     }));
 
     return NextResponse.json(formattedRecords);
