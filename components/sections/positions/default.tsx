@@ -40,7 +40,7 @@ export default function CareerPositions() {
   }, []);
 
   return (
-    <Section id="about-roboticgen">
+    <Section id="positions">
       <div className="px-6 sm:px-8 lg:px-12">
         <div className="relative z-10 flex flex-col items-center pt-16">
           <h3 className="font-instrumentSans text-xs font-medium uppercase text-sky-700 md:text-sm">
