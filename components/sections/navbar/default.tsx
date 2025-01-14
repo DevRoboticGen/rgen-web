@@ -17,6 +17,18 @@ import Roboticgen from "@/components/logos/roboticgen";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
+const HomeNavbar = ({ state }: { state: "dark" | "light" }) => {
+  return (
+    <Link
+      key={"Home"}
+      href={"/"}
+      className={`transition-colors duration-200 ${state === "dark" ? "hover:text-zinc-50" : "hover:text-slate-800"} `}
+    >
+      <span>Home</span>
+    </Link>
+  );
+};
+
 export default function Navbar({
   state = "dark",
 }: {
@@ -59,6 +71,7 @@ export default function Navbar({
                 <nav
                   className={`grid gap-6 p-4 pt-8 text-lg font-medium ${state === "dark" ? "text-zinc-400" : "text-zinc-700"}`}
                 >
+                  <HomeNavbar state={state} />
                   {siteConfig.navitems.map((link, index) => (
                     <Link
                       key={index}
