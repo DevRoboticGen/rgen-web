@@ -52,7 +52,7 @@ export default function AboutRoboticGen() {
             Inspire
             <span className="font-serif text-sky-500">. </span>
           </p>
-          <p className="px-4 py-4 text-center text-base text-slate-600 md:text-lg lg:px-32">
+          <p className="max-w-6xl px-4 py-4 text-center text-base text-slate-600 md:text-lg lg:px-32">
             Let&apos;s drive the future of Robotics and AI together! At
             RoboticGen, we are building a thriving tech community that empowers
             future leaders in Robotics and AI. With free tutorials, engaging

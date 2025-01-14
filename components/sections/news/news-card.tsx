@@ -1,5 +1,7 @@
 "use client";
+import { siteConfig } from "@/config/site";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 interface NewsItem {
@@ -78,9 +80,11 @@ export function NewsCard({ blogContent }: { blogContent: NewsItem }) {
           </p>
           <div className="mt-10 flex flex-row items-center justify-between">
             <span className="text-sm text-gray-500">{blogContent.date}</span>
-            <div className="relative z-10 block rounded-xl bg-black px-6 py-2 text-xs font-bold text-white">
-              Read More
-            </div>
+            <Link href={siteConfig.links.social.linkedin} target="_blank">
+              <div className="relative z-10 block rounded-xl bg-black px-6 py-2 text-xs font-bold text-white">
+                Read More
+              </div>
+            </Link>
           </div>
         </div>
       </div>
