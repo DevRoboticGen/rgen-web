@@ -58,7 +58,7 @@ export function NewsGrid() {
 export function NewsCard({ blogContent }: { blogContent: NewsItem }) {
   return (
     <div className="mx-auto w-full">
-      <div className="group relative h-full overflow-hidden rounded-2xl border border-zinc-100 bg-white transition duration-200 hover:shadow-xl">
+      <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white transition duration-200 hover:shadow-xl">
         <div
           className="relative w-full overflow-hidden rounded-tl-lg rounded-tr-lg bg-gray-100"
           style={{ paddingBottom: "66.25%" }}
@@ -71,17 +71,17 @@ export function NewsCard({ blogContent }: { blogContent: NewsItem }) {
             className={`transform transition duration-200 group-hover:scale-95 group-hover:rounded-2xl`}
           />
         </div>
-        <div className="p-4">
-          <h2 className="my-4 text-lg font-bold text-zinc-700">
+        <div className="flex flex-1 flex-col p-4">
+          <h2 className="mb-2 text-lg font-bold text-zinc-700">
             {blogContent.title}
           </h2>
-          <p className="my-4 text-sm font-normal text-zinc-500">
+          <p className="mb-4 flex-grow text-sm font-normal text-zinc-500">
             {blogContent.description}
           </p>
-          <div className="mt-10 flex flex-row items-center justify-between">
+          <div className="mt-auto flex flex-row items-center justify-between">
             <span className="text-sm text-gray-500">{blogContent.date}</span>
             <Link href={blogContent.readMore} target="_blank">
-              <div className="relative z-10 block rounded-xl bg-black px-6 py-2 text-xs font-bold text-white">
+              <div className="relative z-10 block rounded-full bg-sky-500 px-6 py-2 text-xs font-semibold text-white transition-colors hover:bg-sky-600">
                 Read More
               </div>
             </Link>

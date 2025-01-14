@@ -107,7 +107,7 @@ export function JobCard({
         </div>
         <div className="mt-auto p-4">
           <a
-            href={JobDescription.apply}
+            href={JobDescription.notion}
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full rounded-xl bg-sky-500 px-6 py-2 text-center text-sm font-bold text-white transition duration-200 hover:bg-sky-600"
