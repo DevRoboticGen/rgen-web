@@ -8,9 +8,7 @@ export async function GET() {
     const records = await base(tableName)
       .select({
         fields: ['Title', 'Status' , 'Date' , 'Cover', 'Details' , 'Read More'], 
-        sort: [
-          { field: 'Date', direction: 'desc' }, 
-        ],
+        view: 'Website',
       })
       .all();
 
