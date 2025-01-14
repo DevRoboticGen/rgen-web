@@ -6,14 +6,14 @@ export const siteConfig = {
   images: [],
   keywords: ["robotics", "ai", "machine learning", "deep learning", "computer vision", "roboticgen"],
   description:
-    "RoboticGen",
+    "We are a startup based in Sri Lanka with a mission to drive the future generation of Robotics and AI. We are an engineering first team that wants to solve problems effectively using state-of-the-art tools and technologies. We launched in 2023 May and are growing fast. We have two initiatives. RoboticGen Academy and RoboticGen Labs.",
   links: {
     social: {
-      facebook: "https://facebook.com",
-      instagram: "https://instagram.com",
-      tiktok: "https://tiktok.com",
-      linkedin: "https://linkedin.com",
-      youtube: "https://youtube.com",
+      facebook: "https://facebook.com/RoboticGenInc",
+      instagram: "https://www.instagram.com/roboticgen",
+      tiktok: "https://tiktok.com/@roboticgen_inc",
+      linkedin: "https://www.linkedin.com/company/roboticgen",
+      youtube: "https://youtube.com/@RoboticGen",
     },
   },
   stats: {
@@ -40,7 +40,6 @@ export const siteConfig = {
       key: "academy",
       title: "Academy",
       href: "https://roboticgenacademy.com/",
-      newTab: true,
     },
   ]
 };
