@@ -7,6 +7,7 @@ const initiatives = [
       "At RoboticGen Labs, our award-winning team focuses on creating innovative solutions in Robotics & AI. Our focus areas include smart mobile robots with perception capabilities, physical AI applications, STEM tools and kits, and industrial automation solutions. We also collaborate with universities on research projects and open-source initiatives.",
     imageSrc: "/images/innovate-text.jpg",
     altText: "Labs",
+    action: "https://roboticgenlabs.com/",
   },
   {
     title: "The Best Place to build and \nLearn afterschool",
@@ -15,6 +16,7 @@ const initiatives = [
       "At RoboticGen Academy, we're revolutionizing education through our innovative journey-based learning approach! Our passionate mentors guide children through engaging, self-paced projects aligned with Sustainable Development Goals - from core foundations to exciting paths in Robotics, Programming, and AI. Regular team challenges spark creativity and build essential life skills.",
     imageSrc: "/images/learn-text.png",
     altText: "Academy",
+    action: "https://roboticgenacademy.com/",
   },
 ];
 
