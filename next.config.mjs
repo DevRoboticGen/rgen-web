@@ -6,6 +6,7 @@ const nextConfig = {
       "v5.airtableusercontent.com",
       "www.material-tailwind.com",
     ],
+    unoptimized: true,
   },
 };
 
