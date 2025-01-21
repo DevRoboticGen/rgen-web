@@ -103,7 +103,7 @@ export default function TeamPage() {
               {members.map((member) => (
                 <div
                   key={member.name}
-                  className="flex min-w-[200px] justify-center sm:min-w-[240px] md:min-w-[300px]"
+                  className="flex w-44 justify-center sm:w-[240px] md:w-[300px]"
                 >
                   <TeamMember member={member} />
                 </div>
