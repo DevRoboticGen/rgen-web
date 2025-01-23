@@ -13,10 +13,13 @@ import {
 } from "@/components/ui/carousel";
 import useMediaQuery from "@/hooks/use-media-query";
 import Image from "next/image";
+import { title } from "process";
 
 const images = [
   {
     url: "/culture/1.jpeg",
+    title: "Inspiring Next Gen",
+    description: "Building the future leaders on our way",
   },
   {
     url: "/culture/2.jpeg",
