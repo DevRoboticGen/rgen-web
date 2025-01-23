@@ -13,23 +13,25 @@ export default function TeamMember({ member }: { member: Member }) {
     >
       <PersonAvatar />
       <motion.div
-        className="bottom-0 left-0 right-0 bg-white p-4 transition-all duration-300 group-hover:bg-primary group-hover:text-white"
+        className="bottom-0 left-0 right-0 bg-white p-3 transition-all duration-300 group-hover:bg-primary group-hover:text-white sm:p-4"
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.3 }}
       >
         <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-lg font-semibold">{member.name}</h3>
-            <p className="text-sm">{member.title}</p>
+          <div className="min-w-0 flex-grow pr-2">
+            <h3 className="truncate text-base font-semibold sm:text-lg">
+              {member.name}
+            </h3>
+            <p className="truncate text-xs sm:text-sm">{member.title}</p>
           </div>
           <a
             href={member.linkedIn}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-4 text-blue-600 transition-colors group-hover:text-blue-200"
+            className="flex-shrink-0 text-blue-600 transition-colors group-hover:text-blue-200"
           >
-            <LinkedIn className="h-5 w-5" />
+            <LinkedIn className="h-4 w-4 sm:h-5 sm:w-5" />
           </a>
         </div>
       </motion.div>
