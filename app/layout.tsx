@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${instrumentSans.className} bg-background antialiased`}>
+      <body className={`${instrumentSans.className} antialiased`}>
         {children}
       </body>
     </html>

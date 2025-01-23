@@ -5,6 +5,7 @@ const nextConfig = {
       "img.youtube.com",
       "v5.airtableusercontent.com",
       "www.material-tailwind.com",
+      "images.unsplash.com",
     ],
     unoptimized: true,
   },

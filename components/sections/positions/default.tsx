@@ -1,8 +1,10 @@
 "use client";
+
 import { Section } from "../../ui/section";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Clock, Users, Briefcase, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface JobDescription {
   name: string;
@@ -40,82 +42,107 @@ export default function CareerPositions() {
     fetchRecords();
   }, []);
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
   return (
     <Section id="positions">
-      <div className="px-6 sm:px-8 lg:px-12">
-        <div className="relative z-10 flex flex-col items-center pt-16">
+      <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-16 text-center"
+        >
           <h3 className="font-instrumentSans text-xs font-medium uppercase text-sky-700 md:text-sm">
             We are Hiring
           </h3>
           <p className="font-instrumentSans bg-clip-text py-4 text-center text-4xl font-bold capitalize text-sky-950 md:text-4xl">
             Open Positions
           </p>
-        </div>
+          <p className="mx-auto max-w-2xl text-lg text-gray-600">
+            Join our team and help shape the future of development. We&apos;re
+            looking for passionate individuals who want to make a difference.
+          </p>
+        </motion.div>
 
-        <div className="grid gap-6 pt-12 sm:grid-cols-1 lg:grid-cols-3">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {positions.map((content, index) => (
             <JobCard key={index} JobDescription={content} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </Section>
   );
 }
 
-export function JobCard({
-  JobDescription,
-}: {
-  JobDescription: JobDescription;
-}) {
+function JobCard({ JobDescription }: { JobDescription: JobDescription }) {
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div className="mx-auto w-full max-w-sm">
-      <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white transition duration-200 hover:shadow-xl">
-        <div
-          className="relative w-full overflow-hidden rounded-tl-lg rounded-tr-lg bg-gray-100"
-          style={{ paddingBottom: "66.25%" }}
-        >
-          <Image
-            src={JobDescription.image}
-            alt={`${JobDescription.name} thumbnail`}
-            layout="fill"
-            objectFit="cover"
-            className="transform transition duration-200 group-hover:scale-95 group-hover:rounded-2xl"
-          />
-        </div>
-        <div className="flex flex-grow flex-col p-4">
-          <h2 className="mb-4 text-lg font-bold text-zinc-700">
-            {JobDescription.name}
-          </h2>
-          <div className="flex flex-col space-y-2 text-sm text-zinc-500">
-            <div className="flex items-center">
-              <Users className="mr-2 h-4 w-4" />
-              <span>{JobDescription.team}</span>
-            </div>
-            <div className="flex items-center">
-              <Clock className="mr-2 h-4 w-4" />
-              <span>{JobDescription.duration}</span>
-            </div>
-            <div className="flex items-center">
-              <Briefcase className="mr-2 h-4 w-4" />
-              <span>{JobDescription.type}</span>
-            </div>
-            <div className="flex items-center">
-              <MapPin className="mr-2 h-4 w-4" />
-              <span>{JobDescription.mode}</span>
-            </div>
+    <motion.div
+      variants={item}
+      className="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl"
+    >
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <Image
+          src={JobDescription.image}
+          alt={`${JobDescription.name} thumbnail`}
+          layout="fill"
+          objectFit="cover"
+          className="transform transition duration-500 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      </div>
+
+      <div className="p-6">
+        <h3 className="mb-4 text-xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-sky-600">
+          {JobDescription.name}
+        </h3>
+
+        <div className="mb-6 space-y-3">
+          <div className="flex items-center text-gray-600">
+            <Users className="mr-3 h-5 w-5 text-sky-600" />
+            <span>{JobDescription.team}</span>
+          </div>
+          <div className="flex items-center text-gray-600">
+            <Clock className="mr-3 h-5 w-5 text-sky-600" />
+            <span>{JobDescription.duration}</span>
+          </div>
+          <div className="flex items-center text-gray-600">
+            <Briefcase className="mr-3 h-5 w-5 text-sky-600" />
+            <span>{JobDescription.type}</span>
+          </div>
+          <div className="flex items-center text-gray-600">
+            <MapPin className="mr-3 h-5 w-5 text-sky-600" />
+            <span>{JobDescription.mode}</span>
           </div>
         </div>
-        <div className="mt-auto p-4">
-          <a
-            href={JobDescription.notion}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full rounded-xl bg-sky-500 px-6 py-2 text-center text-sm font-bold text-white transition duration-200 hover:bg-sky-600"
-          >
-            Apply Now
-          </a>
-        </div>
+
+        <a
+          href={JobDescription.notion}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full rounded-xl bg-sky-600 px-6 py-3 text-center font-semibold text-white transition-colors duration-300 hover:bg-sky-700"
+        >
+          View Position
+        </a>
       </div>
-    </div>
+    </motion.div>
   );
 }
