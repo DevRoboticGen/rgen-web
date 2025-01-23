@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/carousel";
 import useMediaQuery from "@/hooks/use-media-query";
 import Image from "next/image";
-import { title } from "process";
 
 const images = [
   {
