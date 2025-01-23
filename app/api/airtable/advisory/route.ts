@@ -1,16 +1,15 @@
 import { NextResponse } from "next/server";
 import { base } from "@/lib/airtable";
 
-// Define types for Airtable fields
 interface LogoFields {
-  "Logo Image"?: { url: string }[]; // Adjust to match your actual field name in the Logos table
+  "Logo Image"?: { url: string }[];
 }
 
 interface AdvisoryFields {
   Name: string;
   Title: string;
   Description: string;
-  Logos?: string[]; // Array of record IDs from the Logos table
+  Logos?: string[];
 }
 
 export async function GET() {
@@ -18,37 +17,32 @@ export async function GET() {
     const advisoryTable = "Advisory Panel";
     const logosTable = "Logos";
 
-    // Step 1: Fetch all advisors
     const advisorRecords = await base(advisoryTable)
       .select({
-        fields: ["Name", "Title", "Description", "Logos"], // Include Logos (linked field)
+        fields: ["Name", "Title", "Description", "Logos"],
         view: "Website",
       })
       .all();
 
-    // Step 2: Collect all linked logo record IDs
     const logoRecordIds = advisorRecords.flatMap(
       (record) => (record.fields as unknown as AdvisoryFields)["Logos"] || [],
-    ); // Flatten all logo IDs into one array
+    );
 
-    // Step 3: Fetch logo records from the Logos table
     const logoRecords = await base(logosTable)
       .select({
         filterByFormula: `OR(${logoRecordIds.map((id) => `RECORD_ID()='${id}'`).join(",")})`,
       })
       .all();
 
-    // Step 4: Map logo record IDs to their corresponding logo URLs
     const logoMap: { [key: string]: string | null } = logoRecords.reduce(
       (acc, record) => {
         const fields = record.fields as LogoFields;
-        acc[record.id] = fields["Logo Image"]?.[0]?.url || null; // Adjust "Logo Image" to your actual field name
+        acc[record.id] = fields["Logo Image"]?.[0]?.url || null;
         return acc;
       },
       {} as { [key: string]: string | null },
     );
 
-    // Step 5: Format the advisors with their corresponding logo URLs
     const formattedRecords = advisorRecords.map((record) => {
       const fields = record.fields as unknown as AdvisoryFields;
       return {
@@ -56,7 +50,7 @@ export async function GET() {
         name: fields.Name,
         title: fields.Title,
         description: fields.Description,
-        logo: (fields.Logos || []).map((logoId) => logoMap[logoId] || null), // Map logo IDs to URLs
+        logo: (fields.Logos || []).map((logoId) => logoMap[logoId] || null),
       };
     });
 
