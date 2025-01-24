@@ -1,40 +1,17 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 interface Advisor {
+  id: string;
   name: string;
   title: string;
   description: string;
-  logo: string;
+  logo: (string | null)[];
 }
-
-export default function AdvisoryPanel() {
-  const [advisor, setAdvisor] = useState<Advisor[]>([]);
-  const [, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchRecords = async () => {
-      try {
-        const response = await fetch("/api/airtable/advisory");
-        if (!response.ok) {
-          throw new Error("Failed to fetch data from the server");
-        }
-        const data = await response.json();
-        setAdvisor(data);
-        console.log(data);
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("Something went wrong");
-        }
-      }
-    };
-
-    fetchRecords();
-  }, []);
-
+type Props = {
+  advisor: Advisor[];
+};
+export default function AdvisoryPanel({ advisor }: Props) {
   return (
     <section className="px-8 pb-36 pt-12 md:px-12 lg:px-20">
       <div className="container mx-auto px-4">

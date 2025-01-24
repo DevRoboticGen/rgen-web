@@ -1,7 +1,6 @@
 "use client";
 
 import { Section } from "../../ui/section";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Clock, Users, Briefcase, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
@@ -16,32 +15,10 @@ interface JobDescription {
   apply: string;
   image: string;
 }
-
-export default function CareerPositions() {
-  const [positions, setPositions] = useState<JobDescription[]>([]);
-  const [, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchRecords = async () => {
-      try {
-        const response = await fetch("/api/airtable/careers");
-        if (!response.ok) {
-          throw new Error("Failed to fetch data from the server");
-        }
-        const data = await response.json();
-        setPositions(data);
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("Something went wrong");
-        }
-      }
-    };
-
-    fetchRecords();
-  }, []);
-
+type Props = {
+  positions: JobDescription[];
+};
+export default function CareerPositions({ positions }: Props) {
   const container = {
     hidden: { opacity: 0 },
     show: {

@@ -1,13 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "img.youtube.com",
-      "v5.airtableusercontent.com",
-      "www.material-tailwind.com",
-      "images.unsplash.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "v5.airtableusercontent.com",
+        pathname: "/**",
+      },
     ],
-    unoptimized: true,
   },
 };
 

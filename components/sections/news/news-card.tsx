@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 
 interface NewsItem {
   date: string;
@@ -11,31 +10,10 @@ interface NewsItem {
   readMore: string;
 }
 
-export function NewsGrid() {
-  const [news, setNews] = useState<NewsItem[]>([]);
-  const [, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchRecords = async () => {
-      try {
-        const response = await fetch("/api/airtable/news"); // Update the endpoint if needed
-        if (!response.ok) {
-          throw new Error("Failed to fetch data from the server");
-        }
-        const data = await response.json();
-        setNews(data);
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("Something went wrong");
-        }
-      }
-    };
-
-    fetchRecords();
-  }, []);
-
+type Props = {
+  news: NewsItem[];
+};
+export function NewsGrid({ news }: Props) {
   return (
     <div className="mx-auto max-w-7xl px-4 pb-40 pt-24 sm:px-6 lg:px-8">
       <div className="relative z-10 flex flex-col items-center pb-12">

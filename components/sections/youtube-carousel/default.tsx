@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import {
@@ -27,33 +27,14 @@ interface Video {
   url: string;
 }
 
-export default function YouTubeCarousel() {
+type Props = {
+  videos: Video[];
+};
+
+export default function YouTubeCarousel({ videos }: Props) {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-  const [videos, setVideo] = useState<Video[]>([]);
-  const [, setError] = useState<string | null>(null);
 
   const plugin = Autoplay({ delay: 4000, stopOnInteraction: true });
-
-  useEffect(() => {
-    const fetchRecords = async () => {
-      try {
-        const response = await fetch("/api/airtable/youtube"); // Update the endpoint if needed
-        if (!response.ok) {
-          throw new Error("Failed to fetch data from the server");
-        }
-        const data = await response.json();
-        setVideo(data);
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("Something went wrong");
-        }
-      }
-    };
-
-    fetchRecords();
-  }, []);
 
   return (
     <div className="mx-auto w-full max-w-7xl gap-4 px-4 py-12">

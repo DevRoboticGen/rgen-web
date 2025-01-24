@@ -3,13 +3,17 @@ import Navbar from "@/components/sections/navbar/default";
 import TeamFooter from "@/components/sections/footer/default";
 import CareerPositions from "@/components/sections/positions/default";
 import { CultureSection } from "@/components/sections/culture/CultureSection";
+import { fetchCareers } from "@/components/data/airtable-data";
 
-export default function Careers() {
+export const revalidate = 3600 * 24;
+
+export default async function Careers() {
+  const careers = await fetchCareers();
   return (
     <main className="bg-background text-foreground">
       <Navbar />
       <HeroCareers />
-      <CareerPositions />
+      <CareerPositions positions={careers} />
       <CultureSection />
       <TeamFooter />
     </main>

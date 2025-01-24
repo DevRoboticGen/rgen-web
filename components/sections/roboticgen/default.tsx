@@ -1,45 +1,16 @@
 "use client";
 import Image from "next/image";
 import { Section } from "../../ui/section";
-import { useEffect, useState } from "react";
 
 interface Logo {
   id: string;
   name: string;
-  logoImage: [
-    {
-      url: string;
-      width: number;
-      height: number;
-    },
-  ];
+  logoImage: { url: string; width: number; height: number }[];
 }
-
-export default function AboutRoboticGen() {
-  const [logos, setLogos] = useState<Logo[]>([]);
-  const [, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchRecords = async () => {
-      try {
-        const response = await fetch("/api/airtable/logos"); // Update the endpoint if needed
-        if (!response.ok) {
-          throw new Error("Failed to fetch data from the server");
-        }
-        const data = await response.json();
-        setLogos(data);
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("Something went wrong");
-        }
-      }
-    };
-
-    fetchRecords();
-  }, []);
-
+type Props = {
+  logos: Logo[];
+};
+export default function AboutRoboticGen({ logos }: Props) {
   return (
     <Section id="about-roboticgen">
       <div className="px-6 sm:px-8 lg:px-12">
