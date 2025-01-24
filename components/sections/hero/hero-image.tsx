@@ -5,7 +5,7 @@ import { ImagesSlider } from "@/components/ui/images-slider";
 import Link from "next/link";
 
 export function Hero() {
-  const images = ["/hero/4.jpg", "/hero/5.jpg", "/hero/7.jpg"];
+  const images = ["/hero/1.jpg", "/hero/5.jpg", "/hero/7.jpg"];
   return (
     <section id="hero">
       <ImagesSlider className="h-[100vh]" images={images}>
