@@ -11,7 +11,7 @@ import {
   fetchYoutubeVideos,
 } from "@/components/data/airtable-data";
 
-export const revalidate = 3600 * 24;
+export const revalidate = 86400;
 
 export default async function Home() {
   const logos = await fetchLogos();

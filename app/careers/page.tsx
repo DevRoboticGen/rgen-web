@@ -5,7 +5,7 @@ import CareerPositions from "@/components/sections/positions/default";
 import { CultureSection } from "@/components/sections/culture/CultureSection";
 import { fetchCareers } from "@/components/data/airtable-data";
 
-export const revalidate = 3600 * 24;
+export const revalidate = 86400;
 
 export default async function Careers() {
   const careers = await fetchCareers();
