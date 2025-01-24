@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* For WebKit Browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: none; /* Hides scrollbar */
+}
+
+/* For All Browsers (Ensure Scrolling Works) */
+body,
+html {
+  overflow: hidden; /* Disable scrolling completely if needed */
+  overflow: auto; /* Keep scrolling functionality without scrollbar */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

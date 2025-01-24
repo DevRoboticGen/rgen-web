@@ -15,21 +15,23 @@ type Props = {
 };
 export function NewsGrid({ news }: Props) {
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-40 pt-24 sm:px-6 lg:px-8">
-      <div className="relative z-10 flex flex-col items-center pb-12">
-        <p className="font-instrumentSans bg-clip-text pb-2 text-center text-3xl font-bold capitalize text-sky-950 md:pb-2 md:text-4xl">
-          Latest News
-        </p>
-        <p className="px-2 py-2 text-center text-sm text-slate-600 md:px-4 md:py-2 md:text-base lg:px-32">
-          Stay up to date with the latest news in technology and innovation.
-        </p>
+    <section id="news">
+      <div className="mx-auto max-w-7xl px-4 pb-40 pt-24 sm:px-6 lg:px-8">
+        <div className="relative z-10 flex flex-col items-center pb-12">
+          <p className="font-instrumentSans bg-clip-text pb-2 text-center text-3xl font-bold capitalize text-sky-950 md:pb-2 md:text-4xl">
+            Latest News
+          </p>
+          <p className="px-2 py-2 text-center text-sm text-slate-600 md:px-4 md:py-2 md:text-base lg:px-32">
+            Stay up to date with the latest news in technology and innovation.
+          </p>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {news.map((content, index) => (
+            <NewsCard key={index} blogContent={content} />
+          ))}
+        </div>
       </div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {news.map((content, index) => (
-          <NewsCard key={index} blogContent={content} />
-        ))}
-      </div>
-    </div>
+    </section>
   );
 }
 

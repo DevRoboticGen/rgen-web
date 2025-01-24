@@ -13,7 +13,7 @@ type Props = {
 export default function AboutRoboticGen({ logos }: Props) {
   return (
     <Section id="about-roboticgen">
-      <div className="px-6 sm:px-8 lg:px-12">
+      <div className="px-6 py-24 sm:px-8 lg:px-12">
         <div className="relative z-10 flex flex-col items-center pt-16">
           <p className="font-instrumentSans bg-clip-text py-4 text-center text-4xl font-bold capitalize text-sky-950 md:text-6xl">
             Learn
@@ -37,22 +37,20 @@ export default function AboutRoboticGen({ logos }: Props) {
             Backed by Alumni and Ecosystem
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            {logos.length > 0 ? (
-              logos.map((logo) =>
-                logo.logoImage[0]?.url ? (
-                  <Image
-                    key={logo.id}
-                    src={logo.logoImage[0].url}
-                    alt={logo.name}
-                    className="h-5 w-auto sm:h-5 md:h-6 lg:h-7"
-                    width={logo.logoImage[0].width}
-                    height={logo.logoImage[0].height}
-                  />
-                ) : null,
-              )
-            ) : (
-              <p>No logos available</p>
-            )}
+            {logos.length > 0
+              ? logos.map((logo) =>
+                  logo.logoImage[0]?.url ? (
+                    <Image
+                      key={logo.id}
+                      src={logo.logoImage[0].url}
+                      alt={logo.name}
+                      className="h-5 w-auto sm:h-5 md:h-6 lg:h-7"
+                      width={logo.logoImage[0].width}
+                      height={logo.logoImage[0].height}
+                    />
+                  ) : null,
+                )
+              : null}
           </div>
         </div>
       </div>

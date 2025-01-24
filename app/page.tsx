@@ -1,5 +1,4 @@
 import { Hero } from "../components/sections/hero/hero-image";
-import { About } from "@/components/sections/about/about-section";
 import YouTubeCarousel from "@/components/sections/youtube-carousel/default";
 import AboutRoboticGen from "../components/sections/roboticgen/default";
 import Navbar from "@/components/sections/navbar/default";
@@ -10,6 +9,7 @@ import {
   fetchNews,
   fetchYoutubeVideos,
 } from "@/components/data/airtable-data";
+import { AboutSection } from "@/components/sections/about/aboutSection";
 
 export const revalidate = 86400;
 
@@ -22,7 +22,7 @@ export default async function Home() {
       <Navbar />
       <Hero />
       <AboutRoboticGen logos={logos} />
-      <About />
+      <AboutSection />
       <YouTubeCarousel videos={videos} />
       <NewsGrid news={news} />
       <TeamFooter />
