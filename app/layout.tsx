@@ -39,7 +39,7 @@ export default function RootLayout({
       <body className={`${instrumentSans.className} antialiased`}>
         {children}
       </body>
-      <GoogleAnalytics gaId="G-6XQ3E90HFR" />
+      <GoogleAnalytics gaId="G-GYDT61WF87" />
     </html>
   );
 }
