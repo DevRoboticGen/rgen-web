@@ -27,6 +27,20 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
     apple: "/apple-touch-icon.png",
   },
+  openGraph:
+  {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.getStartedUrl,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [
+      {
+        url: "https://www.roboticgen.co/logo/dark-logo.svg",
+        alt: siteConfig.name,
+      },
+    ],
+  }
 };
 
 export default function RootLayout({
